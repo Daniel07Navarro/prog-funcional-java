@@ -160,9 +160,12 @@ public class AppStream {
         Map<Integer,Employee> mapa= lista.stream()
                 .collect(Collectors.toMap(Employee::getIdEmployee, Function.identity()));
 
+        
+
         //IMPRIME EL OBJETO
         mapa.values().stream()
                         .filter(e -> Period.between(e.getBirthDate(),LocalDate.now()).getYears() >= 18)
+                        .limit(2)
                         .forEach(System.out::println);
 
         //SE SIGUE IMPRIMIENDO COMO CLAVE : VALOR
